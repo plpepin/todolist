@@ -1,0 +1,7 @@
+.todo-item-container {
+    text-align: left
+}
+
+.todo-item-container h3 {
+    line-height: calc(1.375rem + 1.5vw);
+}

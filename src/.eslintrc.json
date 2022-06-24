@@ -1,0 +1,10 @@
+{
+    // Helps me find issues with ECMAScript 6
+    "env": {
+        "es6": true
+    },
+    "rules": {
+        "comma-dangle":"off",
+        "space-in-parens": 0
+    }
+}

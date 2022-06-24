@@ -1,0 +1,26 @@
+Running the App
+
+1) Add Folder to Workspace
+
+    Add "react-ecosystems-server"
+
+2) start ecosystem server (acts as database for this tutorial)
+    
+    Open root "react-ecosystems-server" in integrated server,
+    then, npm start
+
+3) start Todo List project
+    
+    Open root "todo list" in integrated server, 
+    then, npm start
+
+
+Running the tests, while the ecosystem server is started
+
+npm test
+
+Notes
+------------
+- Port Already in use?
+
+    npx kill-port 3000
