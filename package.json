@@ -1,7 +1,8 @@
 {
-  "name": "meditation_timer",
+  "name": "simple_todo",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://plpepin.github.io/todolist",
   "dependencies": {
     "@babel/runtime": "^7.17.9",
     "@testing-library/jest-dom": "^5.16.4",
@@ -54,6 +55,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/register": "^7.17.7",
     "chai": "^4.3.6",
+    "gh-pages": "^4.0.0",
     "ignore-styles": "^5.0.1",
     "mocha": "^10.0.0"
   }
