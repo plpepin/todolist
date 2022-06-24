@@ -7,11 +7,23 @@ import {
     loadTodosFailure 
 } from "./actions"
 
+import keysDev from '../keys.dev.js'
+import keysProd from '../keys.prod.js'
+
+console.log("keysDev",keysDev.remote_storage);
+console.log("keysProd",keysProd.remote_storage);
+
+const fetch_url = process.env.NODE_ENV === "production" 
+                    ? keysProd.remote_storage
+                    : keysDev.remote_storage
+
 export const loadTodos = () => async ( dispatch, getState ) => {
+
+    console.log("loadTodos URL", fetch_url)
     
     try {
         dispatch(loadTodosInProgress())
-        const response = await fetch('http://localhost:8080/todos')
+        const response = await fetch( fetch_url )
         const todos = await response.json()
 
         dispatch( loadTodosSuccess(todos) )
@@ -23,9 +35,10 @@ export const loadTodos = () => async ( dispatch, getState ) => {
 }
 
 export const addTodoRequest = text => async dispatch => {
+
     try {
         const body = JSON.stringify({ text })
-        const response = await fetch('http://localhost:8080/todos', {
+        const response = await fetch( fetch_url, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -42,7 +55,7 @@ export const addTodoRequest = text => async dispatch => {
 
 export const removeTodoRequest = id => async dispatch => {
     try {
-        const response = await fetch(`//localhost:8080/todos/${id}`,{
+        const response = await fetch(`${fetch_url}${id}`,{
             method: "delete"
         })
         const removedTodo = await response.json()
@@ -56,7 +69,7 @@ export const markAsCompletedRequest = id => async dispatch => {
 
     try {
         
-        const response = await fetch(`//localhost:8080/todos/${id}/completed`,{
+        const response = await fetch(`${fetch_url}${id}/completed`,{
             method: 'post'
         })
         const updatedTodo = response.json()
