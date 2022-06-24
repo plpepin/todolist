@@ -3,6 +3,12 @@ import TodoList from './todos/TodoList'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import styled from 'styled-components'
+import keysDev from './keys.dev'
+import keysProd from './keys.prod'
+
+const remote_storage = process.env.NODE_ENV === "production" 
+                              ? keysProd.remote_storage
+                              : keysDev.remote_storage
 
 const TodoListHeading = styled.h1`
   color: white;
@@ -26,6 +32,7 @@ const App = () => (
       <TodoListHeading className="display-1 p-5">Todo List</TodoListHeading>
       <TodoList />
     </div>
+    <p>remote storage: {remote_storage}</p>
     <Footer />
   </AppContainer>
 )

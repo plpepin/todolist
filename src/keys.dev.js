@@ -1,3 +1,3 @@
 module.exports = {
-    remote_storage: "http://localhost:8080/todos",
+    remote_storage: "http://localhost:3000/todos",
 };
